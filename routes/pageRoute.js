@@ -7,4 +7,4 @@ const router = express.Router();
 router.get('/', pageController.getIndexPage);
 router.get('/about', pageController.getAboutPage);
 
-module.exports= router; 
+module.exports= router;
