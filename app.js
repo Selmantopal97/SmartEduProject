@@ -1,4 +1,5 @@
 const express = require('express');
+const pageRoute = require('./routes/pageRoute');
 
 const app = express();
 
@@ -8,17 +9,9 @@ app.set("view engine", "ejs");
 //Middlewares
 app.use(express.static("public"));
 
-app.get('/', (req, res) => {
-    res.status(200).render('index',{
-        page_name: 'index'
-    });
-});
+//Routes
 
-app.get('/about', (req, res) => {
-    res.status(200).render('about',{
-        page_name: 'about'
-    });
-});
+app.use('/', pageRoute);
 
 const port = 3000;
 
