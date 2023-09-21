@@ -8,6 +8,6 @@ module.exports= async (req,res,next)=>{
     } catch (error) {
         return res.json({
             error:error.message
-        })
+        });
     }
 };
