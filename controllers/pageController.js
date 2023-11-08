@@ -32,6 +32,8 @@ exports.getContactPage = (req, res) => {
 }
 
 exports.sendEmail =async (req, res) => {
+
+    try{
     
     const outputMessage = `
     
@@ -74,7 +76,16 @@ exports.sendEmail =async (req, res) => {
         //       <https://github.com/forwardemail/preview-email>
         //
 
+        req.flash("success", "We Received Your Message Successfully");
+
         res.status(200).redirect('contact');
     }
-    main().catch(console.error);
+    main().catch(err => {
+        req.flash("error", `An Error Occured !`);
+        res.status(200).redirect('contact');
+    })
+    }catch(err){
+        req.flash("error", `An Error Occured !`);
+        res.status(200).redirect('contact');
+    }
 }
