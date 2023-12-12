@@ -32,7 +32,7 @@ app.use(session({
     secret: 'my_keyboard_cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1/smartedu-db' })
+    store: MongoStore.create({ mongoUrl: 'mongodb+srv://dbselman:selman@cluster0.wccwk1z.mongodb.net/?retryWrites=true&w=majority' })
   }));
   app.use(flash());
   app.use((req,res, next)=> {
