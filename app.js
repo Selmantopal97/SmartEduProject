@@ -12,7 +12,7 @@ const userRoute = require('./routes/userRoute');
 const app = express();
 
 //Connecting DB
-mongoose.connect('mongodb+srv://dbselman:selman@cluster0.wccwk1z.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://dbselman:selman@cluster0.wccwk1z.mongodb.net/smartedu-db?retryWrites=true&w=majority', {
 
 }).then(() => {
     console.log('DB Connected Successfully!');
@@ -32,7 +32,7 @@ app.use(session({
     secret: 'my_keyboard_cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: 'mongodb+srv://dbselman:selman@cluster0.wccwk1z.mongodb.net/?retryWrites=true&w=majority' })
+    store: MongoStore.create({ mongoUrl: 'mongodb+srv://dbselman:selman@cluster0.wccwk1z.mongodb.net/smartedu-db?retryWrites=true&w=majority' })
   }));
   app.use(flash());
   app.use((req,res, next)=> {
